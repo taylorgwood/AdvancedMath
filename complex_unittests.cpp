@@ -1,6 +1,5 @@
 #include <iostream>
 #include "gtest/gtest.h"
-//#include "vector3d.h"
 #include "complex.h"
 
 void EXPECT_EQ_COMPLEX(const Complex& firstObject, const Complex& secondObject)

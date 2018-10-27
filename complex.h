@@ -19,18 +19,11 @@ public:
     double modulus();
     Complex operator+(const Complex secondComplexNumber);
 
-
-    //    Complex(Vector3 position, Vector3 velocity, Vector3 acceleration);
-    //    void set_position(Vector3 const position);
-
 protected:
 
 private:
     double mReal{0};
     double mImaginary{0};
-//    double mSign{1};
-    //    double  mCoefficientOfRestitution{0.8};
-    //    std::vector<PhysicsObject*> *mObjectList {nullptr};
 
 };
 #endif // COMPLEX_H
