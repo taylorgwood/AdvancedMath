@@ -95,3 +95,23 @@ TEST(Modulus, whenGivenComplexNumberWithNegativeValues_getCorrectComplexConjugat
     double calculatedModulus = complexNumber.modulus();
     EXPECT_DOUBLE_EQ(expectedModulus,calculatedModulus);
 }
+
+TEST(Adding, whenGivenTwoComplexNumbers_getSummedNumber)
+{
+    Complex firstComplexNumber{1,2};
+    Complex secondComplexNumber{3,5};
+    Complex calculatedSum = firstComplexNumber+secondComplexNumber;
+    Complex expectedSum{4,7};
+
+    EXPECT_EQ_COMPLEX(expectedSum,calculatedSum);
+}
+
+TEST(Adding, whenGivenTwoComplexNumbersWithNegatives_getSummedNumber)
+{
+    Complex firstComplexNumber{1,-2};
+    Complex secondComplexNumber{-3,5};
+    Complex calculatedSum = firstComplexNumber+secondComplexNumber;
+    Complex expectedSum{-2,3};
+
+    EXPECT_EQ_COMPLEX(expectedSum,calculatedSum);
+}

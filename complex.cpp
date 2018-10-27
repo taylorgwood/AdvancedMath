@@ -79,11 +79,21 @@ Complex Complex::conjugate()
 
 double Complex::modulus()
 {
-    double a = get_real();
-    double b = get_imaginary();
+    double real = get_real();
+    double imaginary = get_imaginary();
     double modulus{0};
-    modulus = sqrt(a*a + b*b);
+    modulus = sqrt(real*real + imaginary*imaginary);
     return modulus;
+}
+
+Complex Complex::operator+(const Complex secondComplexNumber)
+{
+    double real1 = get_real();
+    double imaginary1 = get_imaginary();
+    double real2 = secondComplexNumber.get_real();
+    double imaginary2 = secondComplexNumber.get_imaginary();
+    Complex summedComplexNumber{real1+real2,imaginary1+imaginary2};
+    return summedComplexNumber;
 }
 
 //double PhysicsObject::get_coefficient_of_restitution() const

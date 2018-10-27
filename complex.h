@@ -16,7 +16,8 @@ public:
     double absImaginary();
     void print();
     Complex conjugate();
-    double Complex::modulus();
+    double modulus();
+    Complex operator+(const Complex secondComplexNumber);
 
 
     //    Complex(Vector3 position, Vector3 velocity, Vector3 acceleration);
