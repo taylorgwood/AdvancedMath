@@ -46,10 +46,52 @@ TEST(AbsoluteValue, whenAskingForAbsoluteValue_getUnsignedValue)
     EXPECT_DOUBLE_EQ(expectedValue,absoluteValueResult);
 }
 
-TEST(Print,whenPrintingObject_getCorrectValuesAndCorrectSign)
+TEST(Print, whenPrintingObject_getCorrectValuesAndCorrectSign)
 {
     double expectedReal{1};
     double expectedImaginary{-2};
     Complex complexNumber{expectedReal,expectedImaginary};
     complexNumber.print();
+}
+
+TEST(Conjugate, whenGivenComplexNumberWithPositiveValues_getCorrectComplexConjugate)
+{
+    double realNumber{1};
+    double imaginaryNumber{2};
+    Complex complexNumber{realNumber,imaginaryNumber};
+    double conjugateImaginaryNumber{-2};
+    Complex calculatedConjugate = complexNumber.conjugate();
+    Complex expectedConjugate{realNumber,conjugateImaginaryNumber};
+    EXPECT_EQ_COMPLEX(expectedConjugate,calculatedConjugate);
+}
+
+TEST(Conjugate, whenGivenComplexNumberWithNegativeValues_getCorrectComplexConjugate)
+{
+    double realNumber{-1};
+    double imaginaryNumber{-2};
+    Complex complexNumber{realNumber,imaginaryNumber};
+    double conjugateImaginaryNumber{2};
+    Complex calculatedConjugate = complexNumber.conjugate();
+    Complex expectedConjugate{realNumber,conjugateImaginaryNumber};
+    EXPECT_EQ_COMPLEX(expectedConjugate,calculatedConjugate);
+}
+
+TEST(Modulus, whenGivenComplexNumberWithPositiveValues_getCorrectComplexConjugate)
+{
+    double realNumber{3};
+    double imaginaryNumber{4};
+    Complex complexNumber{realNumber,imaginaryNumber};
+    double expectedModulus{5};
+    double calculatedModulus = complexNumber.modulus();
+    EXPECT_DOUBLE_EQ(expectedModulus,calculatedModulus);
+}
+
+TEST(Modulus, whenGivenComplexNumberWithNegativeValues_getCorrectComplexConjugate)
+{
+    double realNumber{-3};
+    double imaginaryNumber{-4};
+    Complex complexNumber{realNumber,imaginaryNumber};
+    double expectedModulus{5};
+    double calculatedModulus = complexNumber.modulus();
+    EXPECT_DOUBLE_EQ(expectedModulus,calculatedModulus);
 }

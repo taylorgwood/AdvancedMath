@@ -15,6 +15,9 @@ public:
 
     double absImaginary();
     void print();
+    Complex conjugate();
+    double Complex::modulus();
+
 
     //    Complex(Vector3 position, Vector3 velocity, Vector3 acceleration);
     //    void set_position(Vector3 const position);

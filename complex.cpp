@@ -1,6 +1,7 @@
 #include "complex.h"
 #include <string>
 #include <iostream>
+#include <cmath>
 
 
 Complex::~Complex()
@@ -44,25 +45,45 @@ void Complex::set_imaginary(double const imaginary)
 
 double Complex::absImaginary()
 {
-    double absoluteValueImaginary{mImaginary};
-    if (mImaginary < 0)
+    double imaginary = get_imaginary();
+    double absoluteValueImaginary{imaginary};
+    if (imaginary < 0)
     {
-        absoluteValueImaginary = -1*mImaginary;
+        absoluteValueImaginary = -1*imaginary;
     }
     return absoluteValueImaginary;
 }
 
 void Complex::print()
 {
+    double real = get_real();
+    double imaginary = get_imaginary();
     double notSignedImaginary{0};
     notSignedImaginary = absImaginary();
     std::string imaginarySign{"+"};
-    if (mImaginary < 0)
+    if (imaginary < 0)
     {
         imaginarySign = "-";
     }
 
-    std::cout << mReal << " " << imaginarySign << " i" << notSignedImaginary << std::endl;
+    std::cout << real << " " << imaginarySign << " i" << notSignedImaginary << std::endl;
+}
+
+Complex Complex::conjugate()
+{
+    double real = get_real();
+    double imaginary = get_imaginary();
+    Complex conjugate{real,-1*imaginary};
+    return conjugate;
+}
+
+double Complex::modulus()
+{
+    double a = get_real();
+    double b = get_imaginary();
+    double modulus{0};
+    modulus = sqrt(a*a + b*b);
+    return modulus;
 }
 
 //double PhysicsObject::get_coefficient_of_restitution() const
