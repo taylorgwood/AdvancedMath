@@ -14,8 +14,8 @@ Complex::Complex()
 
 Complex::Complex(double real, double imaginary)
 {
-    mReal = real;
-    mImaginary = imaginary;
+    set_real(real);
+    set_imaginary(imaginary);
 }
 
 double Complex::get_real() const
@@ -38,30 +38,30 @@ void Complex::set_imaginary(double const imaginary)
     mImaginary = imaginary;
 }
 
-double Complex::absImaginary()
+double Complex::get_unsigned_imaginary()
 {
     double imaginary = get_imaginary();
-    double absoluteValueImaginary{imaginary};
+    double unSignedImaginary{imaginary};
     if (imaginary < 0)
     {
-        absoluteValueImaginary = -1*imaginary;
+        unSignedImaginary = -1*imaginary;
     }
-    return absoluteValueImaginary;
+    return unSignedImaginary;
 }
 
 void Complex::print()
 {
     double real = get_real();
     double imaginary = get_imaginary();
-    double notSignedImaginary{0};
-    notSignedImaginary = absImaginary();
+    double unSignedImaginary{0};
+    unSignedImaginary = get_unsigned_imaginary();
     std::string imaginarySign{"+"};
     if (imaginary < 0)
     {
         imaginarySign = "-";
     }
 
-    std::cout << real << " " << imaginarySign << " i" << notSignedImaginary << std::endl;
+    std::cout << real << " " << imaginarySign << " i" << unSignedImaginary << std::endl;
 }
 
 Complex Complex::conjugate()

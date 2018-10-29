@@ -9,14 +9,12 @@ public:
     Complex(double real, double imaginary);
     double get_real() const;
     double get_imaginary() const;
-
+    double get_unsigned_imaginary();
     void set_real(double const real);
     void set_imaginary(double const imaginary);
-
-    double absImaginary();
     void print();
-    Complex conjugate();
     double modulus();
+    Complex conjugate();
     Complex operator+(const Complex secondComplexNumber);
 
 protected:
